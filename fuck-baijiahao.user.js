@@ -15,7 +15,7 @@ var version = "0.20";
 
 // 初始化
 (function () {
-    config();
+	config();
 	register();
 	fuckBaijiahao();
 })();
@@ -25,16 +25,16 @@ var version = "0.20";
 // 因此在切换搜索词的时候，插件将不再生效，需要定时检测URL是否改变
 var urlStore = window.location.href;
 setInterval(() => {
-    let currentUrl = window.location.href;
-    if (currentUrl !== urlStore) {
-        let interval = setInterval(() => {
+	let currentUrl = window.location.href;
+	if (currentUrl !== urlStore) {
+		let interval = setInterval(() => {
 			if ($("#_mask").length !== 1) {
 				fuckBaijiahao();
 				clearInterval(interval);
 			}
-        }, 10);
-        urlStore = currentUrl;
-    }
+		}, 10);
+		urlStore = currentUrl;
+	}
 }, 1000);
 
 // 配置下发&热更新
@@ -93,17 +93,17 @@ function idGenerator() {
 
 // 获取指定长度随机字符串
 function getRandomStr(len) {
-    var text = "";
-    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    for( var i=0; i < len; i++ )
-        text += possible.charAt(Math.floor(Math.random() * possible.length));
+	var text = "";
+	var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+	for( var i=0; i < len; i++ )
+		text += possible.charAt(Math.floor(Math.random() * possible.length));
 	return text;
 }
 
 
 // 艹百家号
 function fuckBaijiahao() {
-    'use strict';
+	'use strict';
 
 	// 所有搜索结果标签
 	let tags = $('#content_left a[href^="http://www.baidu.com/link?url="]');
@@ -114,15 +114,15 @@ function fuckBaijiahao() {
 	// 百度视频
 	let video = $('.op-short-video-pc');
 
-    // 普通计数器
-    let counter = 0;
+	// 普通计数器
+	let counter = 0;
 
-    // 百家号文章计数器
-    let bjhCounter = 0;
+	// 百家号文章计数器
+	let bjhCounter = 0;
 
-    // 搜索结果数量
-    let resultCounter = $(".nums_text");
-    let resultCounterText = $(".nums_text").text();
+	// 搜索结果数量
+	let resultCounter = $(".nums_text");
+	let resultCounterText = $(".nums_text").text();
 
 	// 轮询每个链接，获取链接背后的真实url
 	// 发现URL包含baijiahao，删除之
@@ -155,7 +155,7 @@ function fuckBaijiahao() {
 						let realUrl = response.responseText.match(reg)[1];
 
 						if (realUrl.indexOf('baijia') !== -1) {
-                            bjhCounter ++;
+							bjhCounter ++;
 
 							// 去除父元素 直接删除该搜索结果
 							// 针对单独搜索结果
@@ -169,12 +169,12 @@ function fuckBaijiahao() {
 
 						} else {
 							// 还原真实地址
-                            // 减小百度采集用户链接点击信息的概率
-                            // 保护隐私，从我做起
+							// 减小百度采集用户链接点击信息的概率
+							// 保护隐私，从我做起
 							$(currentNode).attr('href', realUrl);
 						}
 
-                        resultCounter.text(resultCounterText + "，其中包含" + bjhCounter + "个百家号链接，已全部去除");
+						resultCounter.text(resultCounterText + "，其中包含" + bjhCounter + "个百家号链接，已全部去除");
 					}
 				},
 			});
