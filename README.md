@@ -12,6 +12,10 @@
 
 如图所示
 
+![https://github.com/LuRenJiasWorld/Baijiahao-Fucker/raw/master/image1.png](https://github.com/LuRenJiasWorld/Baijiahao-Fucker/raw/master/image1.png)
+
+![https://github.com/LuRenJiasWorld/Baijiahao-Fucker/raw/master/image2.png](https://github.com/LuRenJiasWorld/Baijiahao-Fucker/raw/master/image2.png)
+
 ## Q&A
 
 - Q: 对`https://baijiahao-fucker.live2.fun`的请求用途是什么
