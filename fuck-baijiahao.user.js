@@ -192,7 +192,7 @@ function fuckBaijiahao() {
 		} else if (bjhCounter !== 0 && bjhCounterTmp !== 0){
 			statistic(bjhCounter);
 			clearInterval(interval);
-		} else if (bjhCounter === 0 && bjhCounterTmp === 0 && logCounter > 500) {
+		} else if (bjhCounter === 0 && bjhCounterTmp === 0 && logCounter > 20) {
 			// 针对网页内确实没有百家号的情况
 			// 且时间已经超过五秒钟
 			statistic(bjhCounter);
