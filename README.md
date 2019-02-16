@@ -2,6 +2,13 @@
 
 > 删除搜索结果中关于百家号与百度视频的内容
 
+## 已知BUG：
+
+- Chrome72下安装该插件后，油猴会警告『Limited runtime host permissions might break some Tampermonkey features like script update, GM_xmlhttpRequest and others!』，使该插件无法使用。目前的解决方法为安装油猴在GitHub最新的Beta版本。
+
+  - Related Issue：[https://github.com/Tampermonkey/tampermonkey/issues/640](https://github.com/Tampermonkey/tampermonkey/issues/640)
+
+
 ## 使用方式
 
 - 浏览器安装油猴插件
