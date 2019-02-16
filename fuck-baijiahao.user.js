@@ -8,7 +8,8 @@
 // @grant        GM.xmlHttpRequest
 // @run-at       document-end
 // @version	     0.20
-// @connect      https://baijiahao-fucker.live2.fun
+// @connect      baijiahao-fucker.live2.fun
+// @connect      www.baidu.com
 // ==/UserScript==
 
 var version = "0.20";
