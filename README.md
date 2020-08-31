@@ -25,15 +25,8 @@
 
 ## Q&A
 
-- Q: 对`https://baijiahao-fucker.live2.fun`的请求用途是什么
-- A: 用于统计该插件的安装数量以及过滤效果，可以更快的发现BUG并发布新版本解决之
-
-
-
 - Q: 无法运行
 - A: 请提交Issue
-
-
 
 - Q: 我有更好的方案
 - A: 欢迎提交Pull Request

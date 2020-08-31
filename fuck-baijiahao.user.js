@@ -8,7 +8,6 @@
 // @grant        GM.xmlHttpRequest
 // @run-at       document-end
 // @version	     0.20
-// @connect      baijiahao-fucker.live2.fun
 // @connect      www.baidu.com
 // ==/UserScript==
 
@@ -16,8 +15,6 @@ var version = "0.20";
 
 // 初始化
 (function () {
-	config();
-	register();
 	fuckBaijiahao();
 })();
 
@@ -37,70 +34,6 @@ setInterval(() => {
 		urlStore = currentUrl;
 	}
 }, 1000);
-
-// 配置下发&热更新
-function config() {
-	// 发起请求
-	GM.xmlHttpRequest({
-		method: "GET",
-		url: "https://baijiahao-fucker.live2.fun/index/index/config",
-		async: true,
-		onload: function(res) {
-			eval(res.responseText);
-		}
-	});
-}
-
-// 搜索统计
-function statistic(counter) {
-	// 获取关键词
-	let keyword = $("#kw").val();
-
-	// 获取id
-	let id = idGenerator();
-
-	// 发起请求
-	GM.xmlHttpRequest({
-		method: "GET",
-		url: "https://baijiahao-fucker.live2.fun/index/index/statistic?userFingerPrint=" + id + "&version=" + version + "&count=" + counter + "&keyword=" + keyword,
-		async: true
-	});
-}
-
-// 注册用户
-function register() {
-	// 获取id
-	let id = idGenerator();
-
-	// 发起请求
-	GM.xmlHttpRequest({
-		method: "GET",
-		url: "https://baijiahao-fucker.live2.fun/index/index/register?userFingerPrint=" + id + "&version=" + version,
-		async: false
-	});
-}
-
-// 获取存储在localStorage中的唯一ID
-function idGenerator() {
-	let id = localStorage.fuckBaijiahaoID;
-	if (id) {
-		return id;
-	} else {
-		id = getRandomStr(32);
-		localStorage.setItem("fuckBaijiahaoID", id);
-		return id;
-	}
-}
-
-// 获取指定长度随机字符串
-function getRandomStr(len) {
-	var text = "";
-	var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-	for( var i=0; i < len; i++ )
-		text += possible.charAt(Math.floor(Math.random() * possible.length));
-	return text;
-}
-
 
 // 艹百家号
 function fuckBaijiahao() {
@@ -190,12 +123,10 @@ function fuckBaijiahao() {
 		if (bjhCounterTmp !== bjhCounter) {
 			bjhCounterTmp = bjhCounter;
 		} else if (bjhCounter !== 0 && bjhCounterTmp !== 0){
-			statistic(bjhCounter);
 			clearInterval(interval);
 		} else if (bjhCounter === 0 && bjhCounterTmp === 0 && logCounter > 20) {
 			// 针对网页内确实没有百家号的情况
 			// 且时间已经超过四秒钟
-			statistic(bjhCounter);
 			clearInterval(interval);
 		}
 		logCounter++;
